@@ -1,0 +1,21 @@
+# Garage: одиночный узел, хранит кэш артефактов отчётов.
+# ID узла генерируется заново для каждого каталога данных,
+# поэтому layout назначается при старте через garage/provision.py.
+metadata_dir = "/var/lib/garage/meta"
+data_dir = "/var/lib/garage/data"
+db_engine = "lmdb"
+
+# Данные в одном экземпляре, без избыточности.
+replication_factor = 1
+consistency_mode = "consistent"
+
+rpc_bind_addr = "[::]:3901"
+rpc_secret = "11b5e4248eb626c17cb9b1bd11c6cc6d7ef2d744527ff47592bb17410b009349"
+
+[s3_api]
+s3_region = "garage"
+api_bind_addr = "[::]:3900"
+
+[admin]
+api_bind_addr = "[::]:3903"
+admin_token = "bionicpro-garage-admin"
